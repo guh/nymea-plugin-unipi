@@ -90,72 +90,26 @@
                     ]
                 },
                 {
-                    "id": "72637166-6730-4b2c-9b5d-4d2066c2fea8",
-                    "name": "neuronL403",
-                    "displayName": "Neuron L403",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "5d11bb59-da27-42ac-a176-27215068bd6d",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "cached": false
-                        }
-                    ]
-                },
-                {
-                    "id": "c28dc232-6797-4aff-83dd-8d811d485482",
-                    "name": "neuronS103",
-                    "displayName": "Neuron S103",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "e650bb92-2dff-44e2-9500-657efba14492",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "cached": false
-                        }
-                    ]
-                },
-                {
-                    "id": "58632506-8d06-4ad0-98d0-275ef8a88955",
-                    "name": "neuronM103",
-                    "displayName": "Neuron M103",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "8ad0d4b2-8256-41a9-8438-003216383215",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "cached": false
-                        }
-                    ]
-                },
-                {
                     "id": "d254dbed-4cf0-4fe3-96da-9adfd8d1c912",
-                    "name": "neuronM203",
-                    "displayName": "Neuron M203",
-                    "createMethods": ["user"],
+                    "name": "neuron",
+                    "displayName": "Neuron",
+                    "createMethods": ["discovery", "user"],
                     "interfaces": ["gateway"],
                     "paramTypes": [
+                        {
+                            "id": "b3501457-3fa1-4844-ae62-c2fc667398aa",
+                            "name": "port",
+                            "displayName": "Port",
+                            "type": "int",
+                            "defaultValue": "502"
+                        },
+                        {
+                            "id": "9fd77edc-6adf-4f90-8828-4e19409fe699",
+                            "name": "address",
+                            "displayName": "Address",
+                            "type": "QString",
+                            "defaultValue": "127.0.0.1"
+                        }
                     ],
                     "stateTypes": [
                         {
@@ -166,144 +120,37 @@
                             "type": "bool",
                             "defaultValue": false,
                             "cached": false
-                        }
-                    ]
-                },
-                {
-                    "id": "6ee92fd5-c169-4050-aa3c-d8289bee20ec",
-                    "name": "neuronM303",
-                    "displayName": "Neuron M303",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
+                        },
                         {
-                            "id": "80528228-7ecd-444f-be59-e2ff89cb20a1",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "cached": false
-                        }
-                    ]
-                },
-                {
-                    "id": "0621f5f1-8531-4d44-800e-52f926c58b17",
-                    "name": "neuronM403",
-                    "displayName": "Neuron M403",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
+                            "id": "7cd72655-4c78-42e8-9a92-c4286e3cdd49",
+                            "name": "model",
+                            "displayName": "Model name",
+                            "displayNameEvent": "Model name changed",
+                            "type": "QString",
+                            "defaultValue": "unknown"
+                        },
                         {
-                            "id": "0eb77f43-dc85-450f-ab2c-d150a739570d",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "cached": false
-                        }
-                    ]
-                },
-                {
-                    "id": "0d5a09de-daf8-469f-803c-520f763167df",
-                    "name": "neuronM503",
-                    "displayName": "Neuron M503",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
+                            "id": "a606b871-3776-436b-a913-6ce78fe9809a1",
+                            "name": "firmwareVersion",
+                            "displayName": "Firmware version",
+                            "displayNameEvent": "Firmware version changed",
+                            "type": "QString",
+                            "defaultValue": "unknown"
+                         },
+                         {
+                             "id": "a06bab06-4982-4f07-ac97-224be205d8e6",
+                             "name": "firmwareUpdateAvailable",
+                             "displayName": "Firmware update available",
+                             "displayNameEvent": "Firmware update available changed",
+                             "type": "bool",
+                             "defaultValue": false
+                         }
                     ],
-                    "stateTypes": [
+                    "actionTypes": [
                         {
-                            "id": "688d21a7-7658-4874-b02b-9340b2c9ba12",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "cached": false
-                        }
-                    ]
-                },
-                {
-                    "id": "366bac45-c602-4c45-9812-1d3d04b2c3db",
-                    "name": "neuronL203",
-                    "displayName": "Neuron L203",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "515a70d3-d599-426f-88a2-c5a651420812",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false
-                        }
-                    ]
-                },
-                {
-                    "id": "fc1a9aab-8573-42fe-8ed4-4876795870c2",
-                    "name": "neuronL303",
-                    "displayName": "Neuron L303",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "3a020c62-e5f9-4909-98d4-5538a8d43d9d",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "cached": false,
-                            "defaultValue": false
-                        }
-                    ]
-                },
-                {
-                    "id": "58d33a7f-30ac-4d79-94a1-2013dc50743e",
-                    "name": "neuronL503",
-                    "displayName": "Neuron L503",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "5e689958-02f0-4e0a-9bb3-e04a6fe1dd30",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "defaultValue": false
-                        }
-                    ]
-                },
-                {
-                    "id": "4b57e164-5f62-4518-afc1-15a659a2c402",
-                    "name": "neuronL513",
-                    "displayName": "Neuron L513",
-                    "createMethods": ["user"],
-                    "interfaces": ["gateway"],
-                    "paramTypes": [
-                    ],
-                    "stateTypes": [
-                        {
-                            "id": "fa82f6cc-4308-4d8b-96c1-2fb1a638e04d",
-                            "name": "connected",
-                            "displayName": "Connected",
-                            "displayNameEvent": "Connection changed",
-                            "type": "bool",
-                            "cached": false,
-                            "defaultValue": false
+                            "id": "b9af7005-9dec-4ac5-9dac-dc6f9e183ba2",
+                            "name": "startUpdate",
+                            "displayName": "Start update"
                         }
                     ]
                 },

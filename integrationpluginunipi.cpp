@@ -40,17 +40,7 @@ void IntegrationPluginUniPi::init()
 
     m_connectionStateTypeIds.insert(uniPi1ThingClassId, uniPi1ConnectedStateTypeId);
     m_connectionStateTypeIds.insert(uniPi1LiteThingClassId, uniPi1LiteConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronS103ThingClassId, neuronS103ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronM103ThingClassId, neuronM103ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronM203ThingClassId, neuronM203ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronM303ThingClassId, neuronM303ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronM403ThingClassId, neuronM403ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronM503ThingClassId, neuronM503ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronL203ThingClassId, neuronL203ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronL303ThingClassId, neuronL303ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronL403ThingClassId, neuronL403ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronL503ThingClassId, neuronL503ConnectedStateTypeId);
-    m_connectionStateTypeIds.insert(neuronL513ThingClassId, neuronL513ConnectedStateTypeId);
+    m_connectionStateTypeIds.insert(neuronThingClassId, neuronConnectedStateTypeId);
     m_connectionStateTypeIds.insert(neuronXS10ThingClassId, neuronXS10ConnectedStateTypeId);
     m_connectionStateTypeIds.insert(neuronXS20ThingClassId, neuronXS20ConnectedStateTypeId);
     m_connectionStateTypeIds.insert(neuronXS30ThingClassId, neuronXS30ConnectedStateTypeId);
@@ -64,7 +54,39 @@ void IntegrationPluginUniPi::discoverThings(ThingDiscoveryInfo *info)
 {
     ThingClassId ThingClassId = info->thingClassId();
 
-    if (ThingClassId == digitalInputThingClassId) {
+    if (ThingClassId == neuronThingClassId) {
+        QFile modelNameFile("/sys/devices/platform/unipi_plc/model_name");
+        if (modelNameFile.open(QIODevice::ReadOnly | QIODevice::Text )) {
+            qCWarning(dcUniPi()) << "Could not open model name file";
+            return;
+        }
+
+        //TODO fix rediscovery
+
+        QTextStream modelNameText(&modelNameFile);
+        QString line = modelNameText.readLine();
+
+        if (line.contains("S103")) {
+        } else if (line.contains("M103")) {
+        } else if (line.contains("M203")) {
+        } else if (line.contains("M303")) {
+        } else if (line.contains("M403")) {
+        } else if (line.contains("M503")) {
+        } else if (line.contains("L203")) {
+        } else if (line.contains("L303")) {
+        } else if (line.contains("L403")) {
+        } else if (line.contains("L503")) {
+        } else if (line.contains("L513")) {
+        } else if (line.contains("M503")) {
+        } else {
+            info->finish(Thing::ThingErrorVendorNotFound);
+            qCWarning(dcUniPi()) << "Discovery failed, unknown model name" << line;
+        }
+
+        ThingDescriptor thingDescriptor(neuronThingClassId, "Neuron"), "");
+        thingDescriptor.setParams();
+
+    } else if (ThingClassId == digitalInputThingClassId) {
         foreach(Thing *Parent, myThings()) {
             if ((Parent->thingClassId() == uniPi1ThingClassId) || (Parent->thingClassId() == uniPi1LiteThingClassId)) {
                 foreach (QString circuit, m_unipi->digitalInputs()) {

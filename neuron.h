@@ -48,11 +48,14 @@ public:
         L513
     };
 
-    explicit Neuron(NeuronTypes neuronType, QModbusTcpClient *modbusInterface, QObject *parent = nullptr);
+    explicit Neuron(QModbusTcpClient *modbusInterface, QObject *parent = nullptr);
     ~Neuron();
 
     bool init();
     QString type();
+    QString firmwareVersion();
+    bool firmwareUpdateAvailable();
+    void startFirmwareUpdate();
 
     QList<QString> digitalInputs();
     QList<QString> digitalOutputs();
